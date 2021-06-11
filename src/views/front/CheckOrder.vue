@@ -31,10 +31,10 @@
               <i class="far fa-plus-square cursor-pointer" @click="changeQty(item.id, item.product.id, item.qty, true)"></i>
             </div>
             <div class="flex items-center">
-              <p class="tracking-widest font-bold">
+              <p class="mx-3 tracking-widest font-bold">
                 {{ item.total | currency }}
               </p>
-              <i class="fas fa-trash-alt ml-4 cursor-pointer text-choco hover:text-orange" @click="removeCart(item.id)"></i>
+              <i class="fas fa-trash-alt cursor-pointer text-choco hover:text-orange" @click="removeCart(item.id)"></i>
             </div>
           </li>
           <li class="mt-3 mobile:mr-20 flex flex-col mobile:flex-row justify-end font-bold tracking-widest">

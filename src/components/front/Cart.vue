@@ -1,7 +1,7 @@
 <template>
   <div>
     <button type="button" class="bag bg-transparent border-none z-10" data-toggle="modal" data-target="#cart-modal" @click="cartModalShow()">
-      <i style="font-size: 25px" class="fas fa-shopping-bag text-grayish-dark hover:text-orange border shadow bg-grayish-light rounded-full h-16 w-16 flex items-center justify-center"></i>
+      <i style="font-size: 25px" class="fas fa-shopping-bag text-grayish-dark hover:text-orange border shadow-sm bg-grayish-light rounded-full h-16 w-16 flex items-center justify-center"></i>
       <small class="py-0.5 px-2 bg-orange text-white rounded-full font-mono" v-if="cart.carts.length">
         {{ cart.carts.length }}
       </small>

@@ -17,7 +17,7 @@
     <div class="pb-40 pt-0 flex font-serif tracking-widest text-grayish-dark">
       <div class="max-w-4xl w-full mx-auto">
         <div class="bg-white rounded-lg overflow-hidden shadow-2xl mt-10">
-          <div class="p-8">
+          <div class="p-3 mobile:p-8">
             <div class="banner bg-cover rounded-md"></div>
             <h2 class="py-4 mb-5 font-bold tracking-widest text-center border-b-2 text-choco">
               收件人資料
@@ -27,10 +27,10 @@
               <form @submit.prevent="createOrder">
                 <ValidationProvider rules="required" v-slot="{ errors }">
                   <div class="flex justify-around items-center mb-1">
-                    <label for="name">訂購姓名</label>
+                    <label for="name">姓名</label>
                     <input type="text" id="name" name="name" class="w-4/5 p-2 border rounded" placeholder="請輸入姓名" v-model="form.user.name" />
                   </div>
-                  <div class="pl-40 mb-1 h-6 text-left text-orange">
+                  <div class="ml-12 mobile:ml-20 md:ml-40 mb-1 h-6 text-left text-orange">
                     <i v-if="errors[0]" class="fas fa-exclamation-circle mr-1"></i>
                     <span style="font-size: 14px">{{ errors[0] }}</span>
                   </div>
@@ -38,10 +38,10 @@
 
                 <ValidationProvider rules="required|phone" v-slot="{ errors }">
                   <div class="flex justify-around items-center mb-1">
-                    <label for="tel">聯絡電話</label>
+                    <label for="tel">電話</label>
                     <input type="tel" id="tel" name="tel" class="w-4/5 p-2 border rounded" placeholder="請輸入電話" v-model="form.user.tel" />
                   </div>
-                  <div class="pl-40 mb-1 h-6 text-left text-orange">
+                  <div class="ml-12 mobile:ml-20 md:ml-40 mb-1 h-6 text-left text-orange">
                     <i v-if="errors[0]" class="fas fa-exclamation-circle mr-1"></i>
                     <span style="font-size: 14px">{{ errors[0] }}</span>
                   </div>
@@ -49,10 +49,10 @@
 
                 <ValidationProvider rules="required" v-slot="{ errors }">
                   <div class="flex justify-around items-center mb-1">
-                    <label for="address">收件地址</label>
+                    <label for="address">地址</label>
                     <input type="text" id="address" name="address" class="w-4/5 p-2 border rounded" placeholder="請輸入地址" v-model="form.user.address" />
                   </div>
-                  <div class="pl-40 mb-1 h-6 text-left text-orange">
+                  <div class="ml-12 mobile:ml-20 md:ml-40 mb-1 h-6 text-left text-orange">
                     <i v-if="errors[0]" class="fas fa-exclamation-circle mr-1"></i>
                     <span style="font-size: 14px">{{ errors[0] }}</span>
                   </div>
@@ -60,10 +60,10 @@
 
                 <ValidationProvider rules="required|email" v-slot="{ errors }">
                   <div class="flex justify-around items-center mb-1">
-                    <label for="email">電子信箱</label>
+                    <label for="email">信箱</label>
                     <input type="email" id="email" name="email" class="w-4/5 p-2 border rounded" placeholder="請輸入信箱" v-model="form.user.email" />
                   </div>
-                  <div class="pl-40 mb-1 h-6 text-left text-orange">
+                  <div class="ml-12 mobile:ml-20 md:ml-40 mb-1 h-6 text-left text-orange">
                     <i v-if="errors[0]" class="fas fa-exclamation-circle mr-1"></i>
                     <span style="font-size: 14px">{{ errors[0] }}</span>
                   </div>
@@ -71,14 +71,14 @@
 
                 <div class="form-item grid grid-cols-2">
                   <div class="flex justify-around items-center mb-4">
-                    <label for="pay">付款方式</label>
+                    <label for="pay">付款</label>
                     <select id="pay" class="w-4/5 sm:w-3/5 p-2 border rounded">
                       <option>ATM轉帳</option>
                       <option>貨到付款</option>
                     </select>
                   </div>
                   <div class="flex justify-around items-center mb-4">
-                    <label for="send">運送方式</label>
+                    <label for="send">運送</label>
                     <select id="send" class="w-4/5 sm:w-3/5 p-2 border rounded">
                       <option>宅配到府</option>
                       <option>門市取貨</option>
@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="flex justify-around items-center">
-                  <label for="message">備註資訊</label>
+                  <label for="message">備註</label>
                   <input type="text" id="message" name="message" class="w-4/5 p-2 border rounded" placeholder="如有特殊需求請備註說明" v-model="form.message" />
                 </div>
                 <div class="grid grid-cols-2 gap-4 pt-10 mt-10 mb-3">
