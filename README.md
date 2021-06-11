@@ -50,7 +50,7 @@
 *  完成付款資訊  
   
 ![image](https://upload.cc/i1/2021/06/11/5l9UPY.png)
-![image](https://upload.cc/i1/2021/06/11/WKGkaw.png)  
+![image](https://upload.cc/i1/2021/06/12/dthQoH.png)  
   
 ## 後台介紹  
 ### 登入  
