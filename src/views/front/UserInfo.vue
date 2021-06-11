@@ -143,6 +143,7 @@
 </template>
 
 <script>
+import $ from "jquery";
 import { mapGetters } from "vuex";
 
 export default {
@@ -177,7 +178,9 @@ export default {
       });
     },
     leaveModal() {
+      $("#leave-modal").modal("hide");
       this.$router.push({ name: "CheckOrder" });
+
     },
   },
   computed: {
