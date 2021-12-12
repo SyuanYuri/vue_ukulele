@@ -2,39 +2,80 @@
   <div>
     <loading :active.sync="isLoading"></loading>
     <Alert />
-    <div class="wrap p-10 text-center text-choco" data-aos="fade-down" data-aos-duration="1000">
+    <div
+      class="wrap p-10 text-center text-choco"
+      data-aos="fade-down"
+      data-aos-duration="1000"
+    >
       <h1 class="mt-3 mb-8 text-choco">CHOOSE YOUR UKULELE</h1>
       <div class="flex flex-wrap justify-center tracking-widest">
         <div class="px-2 tab-item">
-          <a href="#" class="tab pb-1 px-3 hover:no-underline" :class="{ active: category == 0 }" @click.prevent="getCategory(0)">
+          <a
+            href="#"
+            class="tab pb-1 px-3 hover:no-underline"
+            :class="{ active: category == 0 }"
+            @click.prevent="getCategory(0)"
+          >
             全部
           </a>
         </div>
         <div class="px-2">
-          <a href="#" class="tab pb-1 px-3 hover:no-underline" :class="{ active: category == 21 }" @click.prevent="getCategory(21)">
+          <a
+            href="#"
+            class="tab pb-1 px-3 hover:no-underline"
+            :class="{ active: category == 21 }"
+            @click.prevent="getCategory(21)"
+          >
             21吋
           </a>
         </div>
         <div class="px-2">
-          <a href="#" class="tab pb-1 px-3 hover:no-underline" :class="{ active: category == 23 }" @click.prevent="getCategory(23)">
+          <a
+            href="#"
+            class="tab pb-1 px-3 hover:no-underline"
+            :class="{ active: category == 23 }"
+            @click.prevent="getCategory(23)"
+          >
             23吋
           </a>
         </div>
         <div class="px-2">
-          <a href="#" class="tab pb-1 px-3 hover:no-underline" :class="{ active: category == 26 }" @click.prevent="getCategory(26)">
+          <a
+            href="#"
+            class="tab pb-1 px-3 hover:no-underline"
+            :class="{ active: category == 26 }"
+            @click.prevent="getCategory(26)"
+          >
             26吋
           </a>
         </div>
       </div>
-      <div class="grid grid-cols-1 mobile:grid-cols-2 md:grid-cols-3 ipad:grid-cols-4 mt-5 mb-40">
-        <div v-for="item in products" :key="item.id" data-aos="fade-up" data-aos-duration="1000">
-          <div class="image bg-contain bg-center bg-no-repeat cursor-pointer" :style="{ backgroundImage: `url(${item.imageUrl})` }" @click="$router.push(`product/${item.id}`)"></div>
+      <div
+        class="grid grid-cols-1 mobile:grid-cols-2 md:grid-cols-3 ipad:grid-cols-4 mt-5 mb-40"
+      >
+        <div
+          v-for="item in products"
+          :key="item.id"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <div
+            class="image bg-contain bg-center bg-no-repeat cursor-pointer"
+            :style="{ backgroundImage: `url(${item.imageUrl})` }"
+            @click="$router.push(`product/${item.id}`)"
+          ></div>
           <div class="tracking-widest my-3 text-choco">
             <h5>
-              <span v-if="item.category == 21" class="badge badge-info text-white">
+              <span
+                v-if="item.category == 21"
+                class="badge badge-info text-white"
+              >
                 21吋
               </span>
-              <span v-else-if="item.category == 23" class="badge badge-info text-white">
+              <span
+                v-else-if="item.category == 23"
+                class="badge badge-info text-white"
+              >
                 23吋
               </span>
               <span v-else class="badge badge-info text-white">26吋</span>
@@ -43,7 +84,11 @@
               <h2 class="mt-3 font-bold">{{ item.title }}</h2>
               <h5 class="mt-1">NT {{ item.price | currency }}</h5>
             </div>
-            <button type="button" @click="getProduct(item.id)" class="btn rounded py-2 px-10 border-solid border-2 bg-grayish-dark text-white tracking-widest my-3 hover:opacity-70">
+            <button
+              type="button"
+              @click="getProduct(item.id)"
+              class="btn rounded py-2 px-10 border-solid border-2 bg-grayish-dark text-white tracking-widest my-3 hover:opacity-70"
+            >
               Add to Cart
             </button>
           </div>
@@ -52,30 +97,52 @@
           <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body mx-8">
                 <div class="row">
                   <div class="col-lg">
-                    <img :src="product.imageUrl" alt="ukulele" class="object-cover" style="height: 500px;" />
+                    <img
+                      :src="product.imageUrl"
+                      alt="ukulele"
+                      class="object-cover"
+                      style="height: 500px;"
+                    />
                   </div>
                   <div class="col-lg mt-3 mt-lg-0 text-box">
                     <div>
-                      <h3 class="mb-3 font-weight-bold text-left">{{ product.title }}</h3>
-                      <h3 class="mt-1 font-weight-bold text-left">NT {{ product.price | currency }} / {{ product.unit }}</h3>
+                      <h3 class="mb-3 font-weight-bold text-left">
+                        {{ product.title }}
+                      </h3>
+                      <h3 class="mt-1 font-weight-bold text-left">
+                        NT {{ product.price | currency }} / {{ product.unit }}
+                      </h3>
                       <p class="mt-3 mb-8 py-3 border-top text-justify">
                         {{ product.description }}
                       </p>
                     </div>
                     <div>
-                      <select name="num" class="w-100 p-2 rounded font-weight-bold border border-primary" v-model="product.num">
+                      <select
+                        name="num"
+                        class="w-100 p-2 rounded font-weight-bold border border-primary"
+                        v-model="product.num"
+                      >
                         <option :value="num" v-for="num in 10" :key="num">
                           {{ num }}
                         </option>
                       </select>
-                      <button type="button" @click="addCart(product.id, product.num)" class="w-100 py-2 px-10 mt-3 rounded btn btn-primary">
+                      <button
+                        type="button"
+                        @click="addCart(product.id, product.num)"
+                        class="w-100 py-2 px-10 mt-3 rounded btn btn-primary"
+                      >
                         Add to Cart
                       </button>
                     </div>
@@ -83,7 +150,11 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
                   Close
                 </button>
               </div>
@@ -174,7 +245,7 @@ export default {
 
 <style scoped>
 * {
-  font-size: 17px;
+  font-size: 16px;
 }
 h1 {
   font-size: 35px;
